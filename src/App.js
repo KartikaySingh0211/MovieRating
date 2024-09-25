@@ -7,7 +7,7 @@ import { useMovies } from "./useMovies";
 const average = (arr) =>
 	arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-const KEY = "f84fc31d";
+const KEY = "e83dec93";
 
 export default function App() {
 	const [query, setQuery] = useState("");
@@ -274,7 +274,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
 			async function getMovieDetails() {
 				setIsLoading(true);
 				const res = await fetch(
-					`https://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
+					`http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
 				);
 				const data = await res.json();
 				setMovie(data);
@@ -380,7 +380,7 @@ function WatchedSummary({ watched }) {
 				</p>
 				<p>
 					<span>⏳</span>
-					<span>{avgRuntime.toFixed(2)} min</span>
+					<span>{avgRuntime} min</span>
 				</p>
 			</div>
 		</div>
